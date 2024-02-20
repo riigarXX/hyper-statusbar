@@ -11,9 +11,6 @@
   "dependencies": {
     "after-all-results": "^2.0.0",
     "child_process": "^1.0.2",
-    "color": "^4.2.3",
-    "os": "^0.1.2",
-    "simple-git": "^3.22.0",
-    "tildify": "^3.0.0"
+    "os": "^0.1.2"
   }
 }
