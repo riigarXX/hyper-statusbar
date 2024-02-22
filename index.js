@@ -32,7 +32,7 @@ const setCwd = (pid, action) => {
     if (action && action.data) {
       let path = directoryRegex.exec(action.data);
       if (path) {
-        cwdName = getDirectoryNameFormated(cwd)
+        cwdName = getDirectoryNameFormated(path[0])
         cwd = path[0];
         setGit(cwd);
       }
@@ -171,7 +171,6 @@ module.exports.decorateHyper = (Hyper, { React }) => {
     }
 
     render() {
-      console.log(this.state)
       const existingChildren = this.props.customInnerChildren || [];
       // Renderiza la barra de estado
       const header = React.createElement('div', { className: 'hyper-status-bar' }, [
@@ -314,6 +313,7 @@ exports.middleware = (store) => (next) => (action) => {
       const enterKey = data.indexOf('\n') > 0;
 
       if (enterKey) {
+        console.log(action)
         setCwd(pid, action);
         hour = getHours()
         nameDayOfWeek = getDayOfWeek()
