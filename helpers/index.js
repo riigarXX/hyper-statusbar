@@ -1,10 +1,14 @@
-const os = require("os")
+const os = require("os");
 const getHours = () => {
   const date = new Date();
   return `${date.getHours()}:${date.getMinutes()}`
 }
 const isRootUser = () => {
   return os.userInfo().uid === 0;
+}
+const getDirectoryNameFormated = (directoryName) => {
+  const badFormatCwd = directoryName.trim().split("/");
+  return `/${badFormatCwd[badFormatCwd.length - 1]}`
 }
 const getDayOfWeek = () => {
   const actualDate = new Date();
@@ -17,5 +21,5 @@ const getDayOfWeek = () => {
 }
 
 module.exports = {
-  getHours, isRootUser, getDayOfWeek
+  getHours, isRootUser, getDayOfWeek, getDirectoryNameFormated
 }

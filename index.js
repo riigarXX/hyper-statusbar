@@ -2,7 +2,7 @@
 const os = require("os")
 const { exec } = require('child_process');
 const afterAll = require('after-all-results');
-const { getHours, isRootUser, getDayOfWeek } = require('./helpers/index.js')
+const { getHours, isRootUser, getDayOfWeek, getDirectoryNameFormated } = require('./helpers/index.js')
 // Agrega estilos CSS personalizados
 module.exports.onWindow = browserWindow => {
   browserWindow.webContents.on('did-finish-load', () => {
@@ -28,17 +28,18 @@ let git = {
 const setCwd = (pid, action) => {
   if (process.platform == 'win32') {
     let directoryRegex = /([a-zA-Z]:[^\:\[\]\?\"\<\>\|]+)/mi;
+    console.log(action)
     if (action && action.data) {
       let path = directoryRegex.exec(action.data);
       if (path) {
+        cwdName = getDirectoryNameFormated(cwd)
         cwd = path[0];
         setGit(cwd);
       }
     }
   } else {
     exec(`lsof -p ${pid} | awk '$4=="cwd"' | tr -s ' ' | cut -d ' ' -f9-`, (err, stdout) => {
-      const badFormatCwd = stdout.trim().split("/");
-      cwdName = `/${badFormatCwd[badFormatCwd.length - 1]}`
+      cwdName = getDirectoryNameFormated(stdout.trim())
       cwd = stdout.trim()
       setGit(cwd);
     });
@@ -89,7 +90,6 @@ const gitCheck = (repo, cb) => {
     if (err) {
       return cb(err);
     }
-
     const branch = results[0];
     const remote = results[1];
     const dirty = results[2];
