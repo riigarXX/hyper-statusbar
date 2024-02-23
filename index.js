@@ -3,7 +3,6 @@ const os = require("os")
 const { exec } = require('child_process');
 const afterAll = require('after-all-results');
 const { getHours, isRootUser, getDayOfWeek, getDirectoryNameFormated } = require('./helpers/index.js')
-// Agrega estilos CSS personalizados
 module.exports.onWindow = browserWindow => {
   browserWindow.webContents.on('did-finish-load', () => {
     browserWindow.webContents.insertCSS(`
@@ -27,16 +26,12 @@ let git = {
 }
 const setCwd = (pid, action) => {
   if (process.platform == 'win32') {
-    let directoryRegex = /([a-zA-Z]:[^\:\[\]\?\"\<\>\|]+)/mi;
-    console.log(action)
-    if (action && action.data) {
-      let path = directoryRegex.exec(action.data);
-      if (path) {
-        cwdName = getDirectoryNameFormated(path[0])
-        cwd = path[0];
-        setGit(cwd);
-      }
-    }
+    exec("cd", (err, stdout) => {
+      console.log(err, stdout)
+      cwdName = getDirectoryNameFormated(stdout.trim())
+      cwd = stdout.trim();
+      setGit(cwd);
+    })
   } else {
     exec(`lsof -p ${pid} | awk '$4=="cwd"' | tr -s ' ' | cut -d ' ' -f9-`, (err, stdout) => {
       cwdName = getDirectoryNameFormated(stdout.trim())

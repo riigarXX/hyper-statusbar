@@ -7,7 +7,13 @@ const isRootUser = () => {
   return os.userInfo().uid === 0;
 }
 const getDirectoryNameFormated = (directoryName) => {
-  const badFormatCwd = directoryName.trim().split("/");
+  let badFormatCwd = ""
+  console.log(directoryName.trim().split("/"))
+  if (process.platform === "win32") {
+    badFormatCwd = directoryName.trim().split("\\")
+  } else {
+    badFormatCwd = directoryName.trim().split("/");
+  }
   return `/${badFormatCwd[badFormatCwd.length - 1]}`
 }
 const getDayOfWeek = () => {
