@@ -8,36 +8,20 @@ const { getHours, isRootUser, getDayOfWeek, getDirectoryNameFormated } = require
 
 module.exports.decorateConfig = (config) => {
   const theme = config.statusbar.theme || false
-  const configColors = Object.assign({
-    black: "#332933",
-    red: "#D1605A",
-    green: "#90A770",
-    yellow: "#D9BF82",
-    blue: "#7E9FC9",
-    magenta: "#B08EB0",
-    cyan: "#77BFC7",
-    white: "#E3EFE8",
-    lightBlack: "#684D68",
-    lightRed: "#D1605A",
-    lightGreen: "#90A770",
-    lightYellow: "#D9BF82",
-    lightBlue: "#7E9FC9",
-    lightMagenta: "#B08EB0",
-    lightCyan: "#77BFC7",
-    lightWhite: "#F2F2F2"
-  }, themes[theme ? config.statusbar.theme : "dracula"]);
+  const themeSelected = themes[config.statusbar.theme] || false
+  const configColors = themes[theme ? (themeSelected ? theme : "cattpuccin") : "cattpuccin"];
 
   const hyperStatusBar = Object.assign({
     fontFamily: "CaskaydiaCove Nerd Font",
     backgroundColor: false,
-    gitColor: configColors.lightRed,
-    userColor: "",
-    calendarsColor: configColors.lightBlue,
-    directoryColor: configColors.blue,
-    basicUserColor: configColors.lightGreen,
-    rootUserColor: configColors.red,
-    branchColor: configColors.red,
-    informationPillColor: configColors.black
+    gitColor: configColors.gitColor,
+    branchBackgroundColor: configColors.branchBackgroundColor,
+    branchColor: configColors.branchColor,
+    calendarsColor: configColors.calendarsColor,
+    directoryColor: configColors.directoryColor,
+    basicUserColor: configColors.basicUserColor,
+    rootUserColor: configColors.rootUserColor,
+    informationPillColor: configColors.informationPillColor
   }, config.statusbar)
 
   return Object.assign({}, config, {
@@ -82,7 +66,8 @@ module.exports.decorateConfig = (config) => {
         background-color:${hyperStatusBar.gitColor};
       }
       .branchText {
-        background-color:${hyperStatusBar.informationPillColor};
+        background-color:${hyperStatusBar.branchBackgroundColor};
+        color:${hyperStatusBar.branchColor}
         padding-left:10px;
       }
       .menu div > span:last-child {
