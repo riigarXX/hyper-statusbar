@@ -2,7 +2,99 @@
 const os = require("os")
 const { exec } = require('child_process');
 const afterAll = require('after-all-results');
+const { themes } = require("./themes/index.js")
 const { getHours, isRootUser, getDayOfWeek, getDirectoryNameFormated } = require('./helpers/index.js')
+
+
+module.exports.decorateConfig = (config) => {
+  const theme = config.statusbar.theme || false
+  const configColors = Object.assign({
+    black: "#332933",
+    red: "#D1605A",
+    green: "#90A770",
+    yellow: "#D9BF82",
+    blue: "#7E9FC9",
+    magenta: "#B08EB0",
+    cyan: "#77BFC7",
+    white: "#E3EFE8",
+    lightBlack: "#684D68",
+    lightRed: "#D1605A",
+    lightGreen: "#90A770",
+    lightYellow: "#D9BF82",
+    lightBlue: "#7E9FC9",
+    lightMagenta: "#B08EB0",
+    lightCyan: "#77BFC7",
+    lightWhite: "#F2F2F2"
+  }, themes[theme ? config.statusbar.theme : "dracula"]);
+
+  const hyperStatusBar = Object.assign({
+    fontFamily: "CaskaydiaCove Nerd Font",
+    backgroundColor: false,
+    gitColor: configColors.lightRed,
+    userColor: "",
+    calendarsColor: configColors.lightBlue,
+    directoryColor: configColors.blue,
+    basicUserColor: configColors.lightGreen,
+    rootUserColor: configColors.red,
+    branchColor: configColors.red,
+    informationPillColor: configColors.black
+  }, config.statusbar)
+
+  return Object.assign({}, config, {
+    css: `
+      .hyper-status-bar {
+        display: flex;
+        justify-content:space-between;
+        align-items: center;
+        padding: 5px;
+        background-color: ${hyperStatusBar.backgroundColor};
+        color: #cdd6f4;
+        font-family: "${hyperStatusBar.fontFamily}";
+        font-size: 17px;
+        margin-top:30px;
+      }
+      .menu {
+        display:flex;
+      }
+      .menu  div {
+        padding:2px 10px;
+        margin-right:5px;
+      }
+      .menu div > span:first-child {
+        border-radius:8px 0px 0px 8px;
+        padding-left:10px;
+        color:black !important;
+
+      }
+      .calendars {
+        background-color:${hyperStatusBar.calendarsColor};
+      }
+      .directories{
+        background-color:${hyperStatusBar.directoryColor};
+      }
+      .admin-user {
+        background-color: ${hyperStatusBar.rootUserColor};
+      }
+      .basic-user{
+        background-color: ${hyperStatusBar.basicUserColor};
+      }
+      .branchs {
+        background-color:${hyperStatusBar.gitColor};
+      }
+      .branchText {
+        background-color:${hyperStatusBar.informationPillColor};
+        padding-left:10px;
+      }
+      .menu div > span:last-child {
+        border-radius:0px 8px 8px 0px;
+        background-color:${hyperStatusBar.informationPillColor};
+        padding-right:10px;
+        padding-left:10px;
+      }
+    `
+  });
+}
+
 module.exports.onWindow = browserWindow => {
   browserWindow.webContents.on('did-finish-load', () => {
     browserWindow.webContents.insertCSS(`
@@ -27,7 +119,6 @@ let git = {
 const setCwd = (pid, action) => {
   if (process.platform == 'win32') {
     exec("cd", (err, stdout) => {
-      console.log(err, stdout)
       cwdName = getDirectoryNameFormated(stdout.trim())
       cwd = stdout.trim();
       setGit(cwd);
@@ -131,7 +222,6 @@ const setGit = (repo) => {
     })
   });
 }
-
 module.exports.decorateHyper = (Hyper, { React }) => {
   return class extends React.Component {
     constructor(props) {
@@ -157,7 +247,7 @@ module.exports.decorateHyper = (Hyper, { React }) => {
           branch: git.branch,
           remote: git.remote,
           dirty: git.dirty,
-          ahead: git.ahead
+          ahead: git.ahead,
         });
       }, 100);
     }
@@ -227,60 +317,7 @@ module.exports.decorateHyper = (Hyper, { React }) => {
           ),
         ])
       ])
-      const styles = `
-      .hyper-status-bar {
-        display: flex;
-        justify-content:space-between;
-        align-items: center;
-        padding: 5px;
-        //background-color: #282c34;
-        color: #cdd6f4;
-        font-family: "CaskaydiaCove Nerd Font";
-        font-size: 17px;
-        margin-top:30px;
-      }
-      .menu {
-        display:flex;
-      }
-      .menu  div {
-        padding:2px 10px;
-        margin-right:5px;
-      }
-      .menu div > span:first-child {
-        border-radius:8px 0px 0px 8px;
-        padding-left:10px;
-        color:black !important;
-
-      }
-      .calendars {
-        background-color:#89b4fa;
-      }
-      .directories{
-        background-color:#eba0ac;
-      }
-      .admin-user {
-        background-color: #f38ba8
-      }
-      .basic-user{
-        background-color: #a6e3a1
-      }
-      .branchs {
-        background-color:#eba0ac;
-      }
-      .branchText{
-        background-color:#313244;
-        //padding-right:10px;
-        padding-left:10px;
-      }
-      .menu div > span:last-child {
-        border-radius:0px 8px 8px 0px;
-        background-color:#313244;
-        padding-right:10px;
-        padding-left:10px;
-      }
-      `;
       return React.createElement('div', { className: 'hyper-container' }, [
-        React.createElement('style', null, styles), // Agregar estilos CSS
         React.createElement(Hyper, Object.assign({}, this.props, {
           customInnerChildren: existingChildren.concat(header)
         }))
@@ -308,7 +345,6 @@ exports.middleware = (store) => (next) => (action) => {
       const enterKey = data.indexOf('\n') > 0;
 
       if (enterKey) {
-        console.log(action)
         setCwd(pid, action);
         hour = getHours()
         nameDayOfWeek = getDayOfWeek()
