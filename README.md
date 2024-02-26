@@ -19,7 +19,7 @@ Elevate your Hyper terminal experience with the Hyper Statusbar plugin. This sle
 * **Time and Date:** Never lose track of time with a convenient timestamp, complete with a weekend indicator (palm tree icon).
 * **Color Themes:** Choose from a variety of vibrant color themes to match your style.
 
-  ## Usage 🛠️
+## Usage 🛠️
 
 ### Installation 🚚
 
