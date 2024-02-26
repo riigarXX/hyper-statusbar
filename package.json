@@ -1,6 +1,6 @@
 {
   "name": "hyper-statusbar",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -11,11 +11,11 @@
     "after-all-results": "^2.0.0",
     "child_process": "^1.0.2",
     "license": "^1.0.3",
-    "os": "^0.1.2"
+    "os": "^0.1.2",
   },
   "files": [
-      "screenshots/**",
-      "images/**"
+    "screenshots/**",
+    "images/**"
   ],
   "license": "MIT"
 }

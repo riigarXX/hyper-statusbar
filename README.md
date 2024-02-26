@@ -61,43 +61,43 @@ Explore different themes with the Hyper Statusbar plugin:
 
 ### Ayu Theme
 
-![Ayu Theme](screenshots/ayu_theme_screenshot.png)
+<img src="screenshots/ayu_theme_screenshot.png"></img>
 
 ### Tomorrow Night Theme
 
-![Tomorrow Night Theme](screenshots/tomorrow_night_theme_screenshot.png)
+<img src="screenshots/tomorrow_night_theme_screenshot.png"></img>
 
 ### Solarized Dark Theme
 
-![Solarized Dark Theme](screenshots/solarized_dark_theme_screenshot.png)
+<img src="screenshots/solarized_dark_theme_screenshot.png"></img>
 
 ### Palenight Theme
 
-![Palenight Theme](screenshots/palenight_theme_screenshot.png)
+<img src="screenshots/palenight_theme_screenshot.png"></img>
 
 ### One Dark Theme
 
-![One Dark Theme](screenshots/one_dark_theme_screenshot.png)
+<img src="screenshots/one_dark_theme_screenshot.png"></img>
 
 ### Oceanic Next Theme
 
-![Oceanic Next Theme](screenshots/oceanic_next_theme_screenshot.png)
+<img src="screenshots/oceanic_next_theme_screenshot.png"></img>
 
 ### Nord Theme
 
-![Nord Theme](screenshots/nord_theme_screenshot.png)
+<img src="screenshots/nord_theme_screenshot.png"></img>
 
 ### Gruvbox Theme
 
-![Gruvbox Theme](screenshots/gruvbox_theme_screenshot.png)
+<img src="screenshots/gruvbox_theme_screenshot.png"></img>
 
 ### Dracula Theme
 
-![Dracula Theme](screenshots/dracula_theme_screenshot.png)
+<img src="screenshots/dracula_theme_screenshot.png"></img>
 
 ### Cattpuccin Theme
 
-![Cattpuccin Theme](screenshots/cattpuccin_theme_screenshot.png)
+<img src="screenshots/cattpuccin_theme_screenshot.png"></img>
 
 </details>
 
@@ -111,7 +111,7 @@ Happy coding, friend! ✨
 
 With love from riigarXX 💖
 
-![PugDalf](images/pugdalf.webp)
+<img src="images/pugdalf.webp"></img>
 
 ## Contributing 🤝
 
