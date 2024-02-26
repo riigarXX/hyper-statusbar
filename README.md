@@ -1,17 +1,17 @@
-# Hyper Terminal Plugin: hyper-statusbar
+# Hyper Terminal Plugin: hyper-statusbar 💫
 
-[![NPM](https://img.shields.io/npm/v/hyper-statusbar?style=flat\&logo=npm\&label=hyper-statusbar\&labelColor=F38BA8\&color=F38BA8\&logoColor=black)](https://www.npmjs.com/package/hyper-statusbar)\
-[![GitHub release (latest by date including pre-releases)](https://img.shields.io/badge/release-FFADAD?include_prereleases\&style=flat\&logo=github\&labelColor=F38BA8\&label=release\&color=FFADAD\&logoColor=black)](https://github.com/riigarXX/hyper-statusbar/releases)\
-[![GitHub last commit](https://img.shields.io/github/last-commit/riigarXX/hyper-statusbar?style=flat\&logo=github\&labelColor=FFD6A5\&label=last_commit\&color=FFD6A5\&logoColor=black)](https://github.com/riigarXX/hyper-statusbar/commits)\
-[![GitHub stars](https://img.shields.io/github/stars/riigarXX/hyper-statusbar?style=flat\&logo=github\&labelColor=FDFFB6\&label=stars\&color=FDFFB6\&logoColor=black)](https://github.com/riigarXX/hyper-statusbar/stargazers)\
-[![GitHub forks](https://img.shields.io/github/forks/riigarXX/hyper-statusbar?style=flat\&logo=github\&labelColor=CAFFBF\&label=forks\&color=CAFFBF\&logoColor=black)](https://github.com/riigarXX/hyper-statusbar/network/members)\
+[![NPM](https://img.shields.io/npm/v/hyper-statusbar?style=flat\&logo=npm\&label=hyper-statusbar\&labelColor=F38BA8\&color=F38BA8\&logoColor=black)](https://www.npmjs.com/package/hyper-statusbar)
+[![GitHub release (latest by date including pre-releases)](https://img.shields.io/badge/release-FFADAD?include_prereleases\&style=flat\&logo=github\&labelColor=F38BA8\&label=release\&color=FFADAD\&logoColor=black)](https://github.com/riigarXX/hyper-statusbar/releases)
+[![GitHub last commit](https://img.shields.io/github/last-commit/riigarXX/hyper-statusbar?style=flat\&logo=github\&labelColor=FFD6A5\&label=last_commit\&color=FFD6A5\&logoColor=black)](https://github.com/riigarXX/hyper-statusbar/commits)
+[![GitHub stars](https://img.shields.io/github/stars/riigarXX/hyper-statusbar?style=flat\&logo=github\&labelColor=FDFFB6\&label=stars\&color=FDFFB6\&logoColor=black)](https://github.com/riigarXX/hyper-statusbar/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/riigarXX/hyper-statusbar?style=flat\&logo=github\&labelColor=CAFFBF\&label=forks\&color=CAFFBF\&logoColor=black)](https://github.com/riigarXX/hyper-statusbar/network/members)
 [![Downloads](https://img.shields.io/npm/dt/hyper-statusbar?style=flat\&logo=npm\&labelColor=A7FFEB\&label=downloads\&color=A7FFEB\&logoColor=black)](https://www.npmjs.com/package/hyper-statusbar)
 
-## Overview
+## Overview 🚀
 
 Elevate your Hyper terminal experience with the Hyper Statusbar plugin. This sleek addition provides essential information right at your fingertips.
 
-### Key Features
+### Key Features 🔑
 
 * **Branch Awareness:** Stay in the loop with your current Git branch and any pending changes.
 * **User Identification:** Instantly know whether you're logged in as a regular user or root.
@@ -19,9 +19,9 @@ Elevate your Hyper terminal experience with the Hyper Statusbar plugin. This sle
 * **Time and Date:** Never lose track of time with a convenient timestamp, complete with a weekend indicator (palm tree icon).
 * **Color Themes:** Choose from a variety of vibrant color themes to match your style.
 
-## Usage
+  ## Usage 🛠️
 
-### Installation
+### Installation 🚚
 
 Modify your `.hyper.js` file and add our plugin to the plugins array: `hyper-statusbar`.
 
@@ -35,7 +35,7 @@ module.exports = {
 };
 ```
 
-## Customization
+## Customization  🎨
 
 Customize the appearance of your Hyper terminal's status bar to match your preferences.
 
@@ -52,7 +52,7 @@ module.exports = {
 };
 ```
 
-## Screenshots / Usage
+## Screenshots / Usage 📸
 
 <details>
 <summary>View Screenshots</summary>
@@ -112,6 +112,19 @@ Happy coding, friend! ✨
 With love from riigarXX 💖
 
 ![PugDalf](images/pugdalf.webp)
+
+## Contributing 🤝
+
+We welcome contributions from the community! If you'd like to contribute to the Hyper Statusbar plugin, please follow these guidelines:
+
+1. Fork the repository and clone it to your local machine.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes and ensure they are properly tested.
+4. Commit your changes with clear and descriptive commit messages.
+5. Push your changes to your fork.
+6. Submit a pull request to the main repository's `develop` branch.
+
+Thank you for helping to improve the Hyper Statusbar plugin! 💻
 
 ## License 📄
 
