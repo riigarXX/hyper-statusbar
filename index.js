@@ -13,7 +13,8 @@ module.exports.decorateConfig = (config) => {
 
   const hyperStatusBar = Object.assign({
     fontFamily: "CaskaydiaCove Nerd Font",
-    backgroundColor: false,
+    backgroundColor: configColors.backgroundColor,
+    foregroundColor: configColors.foregroundColor,
     gitColor: configColors.gitColor,
     branchBackgroundColor: configColors.branchBackgroundColor,
     branchColor: configColors.branchColor,
@@ -21,10 +22,17 @@ module.exports.decorateConfig = (config) => {
     directoryColor: configColors.directoryColor,
     basicUserColor: configColors.basicUserColor,
     rootUserColor: configColors.rootUserColor,
-    informationPillColor: configColors.informationPillColor
+    informationPillColor: configColors.informationPillColor,
+    cursorColor: configColors.cursorColor,
+    colors: configColors.colors
   }, config.statusbar)
-
+  console.log(hyperStatusBar)
   return Object.assign({}, config, {
+    backgroundColor: hyperStatusBar.backgroundColor,
+    foregroundColor: hyperStatusBar.foregroundColor,
+    borderColor: "transparent",
+    colors: hyperStatusBar.colors,
+    cursorColor: hyperStatusBar.cursorColor,
     css: `
       .hyper-status-bar {
         display: flex;

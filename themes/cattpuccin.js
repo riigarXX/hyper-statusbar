@@ -1,4 +1,6 @@
 module.exports = {
+  backgroundColor: "#24273a",
+  foregroundColor: "#cad3f5",
   gitColor: "#FAB387",
   branchColor: "#A6E3A1",
   branchBackgroundColor: "#44475A",
@@ -6,5 +8,24 @@ module.exports = {
   directoryColor: "#CBA6F7",
   basicUserColor: "#A6E3A1",
   rootUserColor: "#F38BA8",
-  informationPillColor: "#44475A"
+  informationPillColor: "#44475A",
+  cursorColor: "#24273a",
+  colors: {
+    black: "#494d64",
+    blue: "#8aadf4",
+    red: "#ed8796",
+    green: "#a6da95",
+    yellow: "#eed49f",
+    magenta: "#f5bde6",
+    cyan: "#8bd5ca8bd5ca",
+    white: "#b8c0e0",
+    lightBlack: "#5b6078",
+    lightWhite: "#a5adcb",
+    lightBlue: "#8aadf4",
+    lightRed: "#ed8796",
+    lightGreen: "#a6da95",
+    lightYellow: "#eed49f",
+    lightMagenta: "#f5bde6",
+    lightCyan: "#8bd5ca"
+  }
 }
